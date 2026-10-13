@@ -45,6 +45,39 @@ Tested with a generated 2-second, 440 Hz mono PCM WAV file (44,100 Hz, 16-bit).
 | RMS | -15.05 dBFS |
 | Near-clipping samples | 0 |
 
+## Working tool: Music Annotation QA & CSV Export
+
+**Source:** [`music_annotation_qa.py`](music_annotation_qa.py) · [Synthetic example JSON](examples/demo_music_sections.json) · [Example CSV output](examples/demo_music_sections.csv)
+
+A second, tested Python tool for **quality checking manually prepared musical section annotations**. It helps review:
+
+- Section order, durations, and timestamp overlaps
+- Gaps in the annotated timeline (warnings)
+- Missing instrument lists and repeated vibe tags (warnings)
+- Invalid fields, timestamps, and nonpositive durations (errors)
+- Instrument occurrence counts and export of validated sections to CSV
+
+Supports section labels, start/end times, instruments, chord lists, key, vibe tags, and short notes.
+
+**Run the demo:**
+
+```bash
+py music_annotation_qa.py examples/demo_music_sections.json --csv music_sections.csv
+```
+
+Expected summary:
+
+```text
+Sections checked: 4
+Errors: 0 | Warnings: 0
+Annotated duration: 68.000s
+CSV saved: music_sections.csv
+```
+
+**Scope and limitations:** This is a validation/export tool for **annotations entered by a human**; it does **not automatically detect instruments, musical keys, chords, or boundaries from audio**. The demo data is original and synthetic, not from a client project.
+
+**Automated tests:** [12 focused tests](tests/test_music_annotation_qa.py) exercise timestamp handling, overlap/gap detection, data validation, CSV generation, and the CLI. The existing GitHub Actions workflow runs these tests alongside the WAV analyzer tests.
+
 ## Automated checks
 
 [![Python audio tests](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml)
