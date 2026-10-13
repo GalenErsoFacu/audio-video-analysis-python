@@ -45,6 +45,20 @@ Tested with a generated 2-second, 440 Hz mono PCM WAV file (44,100 Hz, 16-bit).
 | RMS | -15.05 dBFS |
 | Near-clipping samples | 0 |
 
+## Automated checks
+
+[![Python audio tests](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml)
+
+The [regression test suite](tests/test_audio_quality_check.py) creates small synthetic WAV files and verifies PCM bit depths, mono/stereo metadata, dBFS calculations, silence, near-clipping, and missing-file errors.
+
+Run the tests locally:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The [GitHub Actions workflow](.github/workflows/python-tests.yml) runs these tests on Windows and Linux with multiple Python versions whenever changes are pushed or proposed. All test data is generated; no confidential audio is included.
+
 ## Professional focus
 
 - Music annotation: instrumentation, musical structure, harmony, and listening-based analysis
