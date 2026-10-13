@@ -78,6 +78,32 @@ CSV saved: music_sections.csv
 
 **Automated tests:** [12 focused tests](tests/test_music_annotation_qa.py) exercise timestamp handling, overlap/gap detection, data validation, CSV generation, and the CLI. The existing GitHub Actions workflow runs these tests alongside the WAV analyzer tests.
 
+## Working tool: Audio Timeline Dynamics (MP3/WAV)
+
+**Source:** [`audio_timeline_analysis.py`](audio_timeline_analysis.py) · [8 synthetic tests](tests/test_audio_timeline_analysis.py)
+
+A command-line analysis tool for **MP3, WAV, and other FFmpeg-readable audio**. Unlike the existing WAV inspector, this module measures how the sound level changes over time:
+
+- RMS and decoded sample peak for consecutive time intervals
+- Sample counts close to 0 dBFS
+- Quiet intervals below an adjustable RMS threshold
+- Large changes in RMS between adjacent intervals
+- CSV export with timestamps for downstream review
+
+**Requirements:** Python 3.10+, **FFmpeg and FFprobe on PATH**. The Python program itself uses only the standard library.
+
+**Run on your own recording:**
+
+```bash
+py audio_timeline_analysis.py "my_recording.mp3" --interval 1 --csv audio_timeline.csv --summary audio_summary.txt
+```
+
+Both MP3 and WAV input work; the CSV and optional text summary are created locally. You can adjust `--silence-dbfs` and `--jump-db` for different material.
+
+**Scope and limitations:** This measures the *decoded audio*; MP3 decoding can produce sample peaks above 0 dBFS, which alone does not prove that the original master clipped. Sample peak is not true peak and RMS is not LUFS. Detected level changes are **not verified musical section boundaries**, and the tool does not recognize instruments or harmony.
+
+**Privacy:** The real recording used for development and its analysis report are **not published** in this repository. Automated tests use only synthetic audio generated in temporary directories.
+
 ## Automated checks
 
 [![Python audio tests](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml)
