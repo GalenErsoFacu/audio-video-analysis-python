@@ -28,3 +28,36 @@ Work in progress. Demonstration scripts and documentation will be added as they 
 
 ## Professional Profile
 [LinkedIn](https://www.linkedin.com/in/facusayago)
+
+
+## Audio Quality Analysis Tool
+
+A Python utility for analyzing uncompressed PCM WAV files.
+
+### Features
+- Audio duration and sample rate
+- Channel count and bit depth
+- Peak amplitude in dBFS
+- RMS level in dBFS
+- Near-clipping sample detection
+- Supports 8, 16, 24, and 32-bit PCM WAV
+
+### Usage
+
+Run the following command:
+
+```bash
+python audio_quality_check.py example.wav
+```
+
+### Validation
+
+The script was tested with a 2-second, 440 Hz WAV file at 44.1 kHz and 16-bit resolution.
+
+Results:
+- Peak: -12.04 dBFS
+- RMS: -15.05 dBFS
+- Near-clipping samples: 0
+
+No external Python libraries are required.
+
