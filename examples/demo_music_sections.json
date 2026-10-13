@@ -1,0 +1,45 @@
+{
+  "title": "Original instrumental demo (synthetic metadata)",
+  "sections": [
+    {
+      "label": "Intro",
+      "start": "00:00",
+      "end": "00:12.5",
+      "key": "A minor",
+      "chords": ["Am", "F"],
+      "instruments": ["Synth pad", "Electric piano"],
+      "vibe_tags": ["Atmospheric", "Sparse", "Warm"],
+      "notes": "Soft pad swell with sustained keyboard chords."
+    },
+    {
+      "label": "Verse",
+      "start": "00:12.5",
+      "end": "00:35",
+      "key": "A minor",
+      "chords": ["Am", "F", "C", "G"],
+      "instruments": ["Electric piano", "Bass guitar", "Drum machine"],
+      "vibe_tags": ["Measured", "Relaxed", "Steady"],
+      "notes": "Bass and percussion establish a regular pulse."
+    },
+    {
+      "label": "Chorus",
+      "start": "00:35",
+      "end": "00:55",
+      "key": "C major",
+      "chords": ["C", "G", "Am", "F"],
+      "instruments": ["Bass guitar", "Electric piano", "Drum machine", "Synth lead"],
+      "vibe_tags": ["Bright", "Energetic", "Expansive"],
+      "notes": "Layered lead line and stronger rhythmic texture."
+    },
+    {
+      "label": "Outro",
+      "start": "00:55",
+      "end": "01:08",
+      "key": "C major",
+      "chords": ["C", "F", "C"],
+      "instruments": ["Electric piano", "Synth pad"],
+      "vibe_tags": ["Gentle", "Resolving", "Spacious"],
+      "notes": "Percussion drops out and harmony sustains."
+    }
+  ]
+}
