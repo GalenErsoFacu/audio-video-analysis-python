@@ -1,114 +1,65 @@
+# Audio Analysis & AI Tools
 
-# Audio & Video Analysis with Python
+**Python Audio Processing · Audio Quality Assurance · AI Annotation**
 
-## About Me
-I'm a professional Audio Engineer, Music Producer, and Musician with over 25 years of experience in audio production, mixing, mastering, and critical listening.
+I'm **Facundo Sayago**, an audio professional, musician, and music producer based in Argentina, with over 25 years of practical experience in live sound, recording, mixing, mastering, and critical listening. I also work on audio/video annotation and quality review for AI projects.
 
-I also have experience in AI audio/video annotation, transcription evaluation, and quality assurance.
+This repository documents hands-on, reproducible Python tools. It distinguishes **working code** from planned experiments.
 
-## Project Overview
-This repository documents my practical exploration of Python-based audio and video analysis.
+## Working tool: WAV Audio Quality Analyzer
 
-## Technologies
-- Python
-- OpenAI Whisper
-- FFmpeg
-- OpenCV
-- PySceneDetect
+**Source:** [`audio_quality_check.py`](audio_quality_check.py)
 
-## Project Goals
-- Audio transcription and timestamp analysis
-- Video scene and camera-cut detection
-- Audiovisual content analysis
-- Audio quality evaluation
-- Automated annotation workflows
+A command-line tool that inspects **uncompressed integer PCM WAV** files.
 
-## Current Status
-Work in progress. Demonstration scripts and documentation will be added as they are developed and tested.
+It reports:
+- Duration, sample rate, and channel count
+- Sample bit depth (8-, 16-, 24-, or 32-bit integer PCM)
+- Sample peak in dBFS
+- Overall RMS in dBFS
+- Number of samples at or above a near-clipping threshold
 
-## Professional Profile
-[LinkedIn](https://www.linkedin.com/in/facusayago)
+**Requirements:** Python 3.10+; no third-party packages.
 
-
-## Audio Quality Analysis Tool
-
-A Python utility for analyzing uncompressed PCM WAV files.
-
-### Features
-- Audio duration and sample rate
-- Channel count and bit depth
-- Peak amplitude in dBFS
-- RMS level in dBFS
-- Near-clipping sample detection
-- Supports 8, 16, 24, and 32-bit PCM WAV
-
-### Usage
-
-Run the following command:
+### Run
 
 ```bash
-python audio_quality_check.py example.wav
+py audio_quality_check.py example.wav
 ```
 
-### Validation
+Replace `example.wav` with your own WAV file path. On systems where `py` is unavailable, use `python`.
 
-The script was tested with a 2-second, 440 Hz WAV file at 44.1 kHz and 16-bit resolution.
+**Scope:** The script does not currently support floating-point WAV, compressed formats, LUFS measurement, or true-peak detection. Its RMS measurement is a sample-based measurement across all channels.
 
-Results:
-- Peak: -12.04 dBFS
-- RMS: -15.05 dBFS
-- Near-clipping samples: 0
+### Local validation
 
-No external Python libraries are required.
+Tested with a generated 2-second, 440 Hz mono PCM WAV file (44,100 Hz, 16-bit).
 
+| Measurement | Observed result |
+|---|---|
+| Duration | 2.00 s |
+| Sample rate | 44,100 Hz |
+| Channels | Mono |
+| Bit depth | 16-bit |
+| Sample peak | -12.04 dBFS |
+| RMS | -15.05 dBFS |
+| Near-clipping samples | 0 |
 
-## Audio Quality Analysis Tool
+## Professional focus
 
-A Python-based tool for technical audio inspection and quality assessment.
+- Music annotation: instrumentation, musical structure, harmony, and listening-based analysis
+- Audio transcription quality review, timestamp checking, and speaker labeling
+- Sound recording, editing, mixing, and mastering
+- AI-assisted audio/video workflows
 
-### Features
-- WAV file analysis
-- Duration and sample rate detection
-- Channel count and bit depth
-- Peak level measurement (dBFS)
-- RMS level measurement (dBFS)
-- Near-clipping sample detection
-- Support for uncompressed PCM WAV files
+## Tools being explored
 
-### How to Run
+Python, OpenAI Whisper, FFmpeg, OpenCV, and PySceneDetect.
 
-Requirements:
-- Python 3.10 or newer
-- No external libraries required
+**Planned work — not yet published as working modules:** timestamped transcription, subtitle generation, and video scene-cut detection.
 
-Command:
+## Contact
 
-    python audio_quality_check.py example.wav
+[LinkedIn](https://www.linkedin.com/in/facusayago) · [GitHub](https://github.com/GalenErsoFacu)
 
-Replace example.wav with the name of your WAV file.
-
-### Test Results
-
-Successfully tested with a 2-second, 440 Hz WAV test signal.
-
-- Sample rate: 44,100 Hz
-- Bit depth: 16-bit
-- Channels: Mono
-- Peak level: -12.04 dBFS
-- RMS level: -15.05 dBFS
-- Near-clipping samples: 0
-
-### Applications
-
-- Audio Quality Assurance
-- AI Audio Dataset Evaluation
-- Technical Audio Inspection
-- Audio Annotation Workflows
-- Digital Audio Analysis
-
-### Development Status
-
-Initial audio analysis module implemented and locally tested.
-Further audiovisual analysis features are planned.
-
-
+> Only self-created demonstration data and non-confidential code belong in this public repository.
