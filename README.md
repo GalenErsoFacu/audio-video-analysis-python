@@ -104,6 +104,28 @@ Both MP3 and WAV input work; the CSV and optional text summary are created local
 
 **Privacy:** The real recording used for development and its analysis report are **not published** in this repository. Automated tests use only synthetic audio generated in temporary directories.
 
+## Experimental tool: Acoustic Transition Candidates
+
+**Source:** [\`music_transition_candidates.py\`](music_transition_candidates.py) · [14 synthetic regression tests](tests/test_music_transition_candidates.py)
+
+A lightweight, **human-in-the-loop** aid for locating possible acoustic transitions in MP3 or WAV recordings. It computes short-window summaries of loudness, low-frequency content, brightness, and zero-crossing rate, then compares windows before and after each time position.
+
+It exports a timestamped CSV of up to 12 **candidate listening points** (by default) for a music annotator to check.
+
+**Requirements:** Python 3.10+ and **FFmpeg on PATH**. No third-party Python packages.
+
+**Usage:**
+
+\`\`\`bash
+py music_transition_candidates.py "my_recording.mp3" --csv transitions.csv
+\`\`\`
+
+Optional tuning: \`--window 0.5\`, \`--min-gap 9\`, \`--max-candidates 12\`, \`--sensitivity 85\`. Lower sensitivity percentile means more candidates.
+
+**Limitations:** These are *changes in signal statistics*, not confirmed song sections. They may coincide with drum fills, vocal entrances, dynamic changes, or fades, and they may miss meaningful transitions in otherwise similar-sounding arrangements. The CSV marks every detection **"Review by ear"**. Manual annotation remains essential; no audio content is uploaded.
+
+**Privacy:** The real music recording used during development, and its candidate timestamps, are not included in this public repository.
+
 ## Automated checks
 
 [![Python audio tests](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml/badge.svg)](https://github.com/GalenErsoFacu/audio-video-analysis-python/actions/workflows/python-tests.yml)
