@@ -1,0 +1,5 @@
+section,label,start_s,end_s,duration_s,key,chords,instruments,vibe_tags,notes
+1,Intro,0.000,12.500,12.500,A minor,Am | F,Synth pad | Electric piano,Atmospheric | Sparse | Warm,Soft pad swell with sustained keyboard chords.
+2,Verse,12.500,35.000,22.500,A minor,Am | F | C | G,Electric piano | Bass guitar | Drum machine,Measured | Relaxed | Steady,Bass and percussion establish a regular pulse.
+3,Chorus,35.000,55.000,20.000,C major,C | G | Am | F,Bass guitar | Electric piano | Drum machine | Synth lead,Bright | Energetic | Expansive,Layered lead line and stronger rhythmic texture.
+4,Outro,55.000,68.000,13.000,C major,C | F | C,Electric piano | Synth pad,Gentle | Resolving | Spacious,Percussion drops out and harmony sustains.
