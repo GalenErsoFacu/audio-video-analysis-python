@@ -106,7 +106,7 @@ Both MP3 and WAV input work; the CSV and optional text summary are created local
 
 ## Experimental tool: Acoustic Transition Candidates
 
-**Source:** [\`music_transition_candidates.py\`](music_transition_candidates.py) · [14 synthetic regression tests](tests/test_music_transition_candidates.py)
+**Source:** [`music_transition_candidates.py`](music_transition_candidates.py) · [14 synthetic regression tests](tests/test_music_transition_candidates.py)
 
 A lightweight, **human-in-the-loop** aid for locating possible acoustic transitions in MP3 or WAV recordings. It computes short-window summaries of loudness, low-frequency content, brightness, and zero-crossing rate, then compares windows before and after each time position.
 
@@ -116,11 +116,11 @@ It exports a timestamped CSV of up to 12 **candidate listening points** (by defa
 
 **Usage:**
 
-\`\`\`bash
+```bash
 py music_transition_candidates.py "my_recording.mp3" --csv transitions.csv
-\`\`\`
+```
 
-Optional tuning: \`--window 0.5\`, \`--min-gap 9\`, \`--max-candidates 12\`, \`--sensitivity 85\`. Lower sensitivity percentile means more candidates.
+Optional tuning: `--window 0.5`, `--min-gap 9`, `--max-candidates 12`, `--sensitivity 85`. Lower sensitivity percentile means more candidates.
 
 **Limitations:** These are *changes in signal statistics*, not confirmed song sections. They may coincide with drum fills, vocal entrances, dynamic changes, or fades, and they may miss meaningful transitions in otherwise similar-sounding arrangements. The CSV marks every detection **"Review by ear"**. Manual annotation remains essential; no audio content is uploaded.
 
