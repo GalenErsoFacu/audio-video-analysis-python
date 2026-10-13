@@ -218,3 +218,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local audio recordings are not for publication.
+*.mp3
+*.wav
+*.flac
+*.aif
+*.aiff
+*.m4a
+*.ogg
+
+# Generated personal analysis reports
+audio_timeline.csv
+audio_summary.txt
+music_sections.csv
